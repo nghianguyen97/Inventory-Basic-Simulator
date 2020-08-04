@@ -274,7 +274,7 @@
                 Holding Cost:
                 <span
                   class="badge badge-primary badge-pill"
-                  id="orderingCostSimulate"
+                  id="holdingCostSimulate"
                 >
                   0</span
                 >
@@ -375,7 +375,7 @@
                   <span
                     class="badge badge-primary badge-pill"
                     id="currInventorySimulate"
-                    >14</span
+                    >0</span
                   >
                 </p>
               </legend>
@@ -409,9 +409,9 @@
                   style="margin: auto; text-align: center;"
                 >
                   <div
-                    class="picture"
+                    class="cloud"
                     style="
-                      border-radius: 15px 20px;
+                      border-radius: 15px 20px 15px 20px;
                       border: 1px solid black;
                       background-color: ghostwhite;
                       float: left;
@@ -419,7 +419,7 @@
                     "
                     id="userDemandMessage"
                   >
-                    <p style="font-size: 13px;">
+                    <p style="font-size: 13px;" class="cloud-text">
                       I want to buy
                       <span
                         class="badge badge-primary badge-pill"
@@ -566,7 +566,7 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr id="orderCost">
+                <tr id="orderCosts">
                   <th scope="row">Ordered Costs ($)</th>
                   <td></td>
                   <td></td>
@@ -581,7 +581,7 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr id="holdingCost">
+                <tr id="holdingCosts">
                   <th scope="row">Holding Cost ($)</th>
                   <td></td>
                   <td></td>
@@ -597,7 +597,7 @@
                   <td></td>
                 </tr>
 
-                <tr id="totalInclStockoutPenality">
+                <tr id="totalCostIncludeStockoutPenality">
                   <th scope="row" style="font-weight: 1000; color: blue;">
                     Total Cost incl. Stockout Penality ($)
                   </th>
@@ -614,7 +614,7 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr id="totalCumulativeCost">
+                <tr id="totalCummulativeCost">
                   <th scope="row" style="font-weight: 1000; color: blue;">
                     Total Cumulative Cost ($)
                   </th>
@@ -875,11 +875,11 @@
                 <div class="unitDescription"><span>$/(unit)(week)</span></div>
               </div>
               <div class="form-group col-md-4">
-                <label for="inputOrderningCost">Ordering Cost</label>
+                <label for="inputOrderingCost">Ordering Cost</label>
                 <input
                   type="number"
                   class="form-control"
-                  id="inputOrderningCost"
+                  id="inputOrderingCost"
                 />
               </div>
               <div class="form-group col-md-2">
@@ -980,21 +980,21 @@
 
       //-----------------end----------------------//
       //---------------initial weeks map-----------//
-
+      var currentWeek = 0;
       var inputInitialInventory,
         inputStockoutPenality,
         inputDemandMean,
         inputDemandStdDev,
         inputHoldingCost,
-        inputOrderningCost;
+        inputOrderingCost;
 
       var weeksToGenerate = 12;
       var weeks = {};
 
       for (let index = 0; index < weeksToGenerate; index++) {
         let object = {
-          week: index,
-          inventoryLevelBeginningOfTheWeek: 0,
+          week: index + 1,
+          inventoryLevelBeginningOfWeek: 0,
           inventoryLevelAfterUnloading: 0,
           customerDemand: 0,
           inventoryLevelEndOfWeek: 0,
@@ -1005,7 +1005,7 @@
           totalCummulativeCost: 0,
         };
 
-        weeks[index] = object;
+        weeks[index + 1] = object;
       }
 
       console.log(weeks);
@@ -1055,12 +1055,12 @@
 
       $('#buttonSave').click(function () {
         //------check the button--------//
-        inputInitialInventory = $('#inputInitialInventory').val();
-        inputStockoutPenality = $('#inputStockoutPenality').val();
-        inputDemandMean = $('#inputDemandMean').val();
-        inputDemandStdDev = $('#inputDemandStdDev').val();
-        inputHoldingCost = $('#inputHoldingCost').val();
-        inputOrderningCost = $('#inputOrderningCost').val();
+        inputInitialInventory = Number($('#inputInitialInventory').val());
+        inputStockoutPenality = Number($('#inputStockoutPenality').val());
+        inputDemandMean = Number($('#inputDemandMean').val());
+        inputDemandStdDev = Number($('#inputDemandStdDev').val());
+        inputHoldingCost = Number($('#inputHoldingCost').val());
+        inputOrderingCost = Number($('#inputOrderingCost').val());
 
         inputObj = {
           inputInitialInventory: inputInitialInventory,
@@ -1068,7 +1068,7 @@
           inputDemandMean: inputDemandMean,
           inputDemandStdDev: inputDemandStdDev,
           inputHoldingCost: inputHoldingCost,
-          inputOrderningCost: inputOrderningCost,
+          inputOrderingCost: inputOrderingCost,
         };
 
         for (let e in inputObj) {
@@ -1084,7 +1084,7 @@
 
         var EOQ = Math.ceil(
           Math.sqrt(
-            (2 * inputDemandMean * inputOrderningCost) / inputHoldingCost
+            (2 * inputDemandMean * inputOrderingCost) / inputHoldingCost
           )
         );
         var estimatedNumberOfOrders = Math.ceil((inputDemandMean * 12) / EOQ);
@@ -1198,8 +1198,8 @@
           ? $('#inputOrderingCost').val()
           : 0;
 
-        var initialMeanDemandSimulate = $('#inputOrderingCost').val()
-          ? $('#inputOrderingCost').val()
+        var initialMeanDemandSimulate = $('#inputInitialInventory').val()
+          ? $('#inputInitialInventory').val()
           : 0;
 
         var lastWeekDemandSimulate = $('#inputOrderingCost').val()
@@ -1216,6 +1216,7 @@
 
       //----------submit order button------------//
       $('#sumitOrder').click(function () {
+        currentWeek++;
         $('#truckAnimation').show();
         $('#personOrder').show(2000);
         $('#userDemandMessage').show(2000);
@@ -1230,9 +1231,111 @@
           $('#animationClass').removeClass('truckAnimation');
         }, 3000);
         //----end-------//
+
+        if (currentWeek === 1) {
+          weeks[
+            currentWeek
+          ].inventoryLevelBeginningOfWeek = inputInitialInventory;
+          weeks[
+            currentWeek
+          ].inventoryLevelAfterUnloading = inputInitialInventory;
+
+          var customerDemand = [19, 20, 21];
+          var random = randomIntFromInterval(0, 2);
+          weeks[currentWeek].customerDemand = customerDemand[random];
+          weeks[currentWeek].inventoryLevelEndOfWeek =
+            weeks[currentWeek].inventoryLevelBeginningOfWeek -
+            weeks[currentWeek].customerDemand;
+
+          weeks[currentWeek].quantityOrdered = Number($('#inputUnit').val());
+          weeks[currentWeek].orderCosts =
+            weeks[currentWeek].quantityOrdered > 0 ? inputOrderingCost : 0;
+          weeks[currentWeek].holdingCosts =
+            weeks[currentWeek].quantityOrdered * inputHoldingCost;
+
+          weeks[currentWeek].totalCostIncludeStockoutPenality =
+            weeks[currentWeek].orderCosts +
+            weeks[currentWeek].holdingCosts +
+            (weeks[currentWeek].inventoryLevelEndOfWeek > 0
+              ? 0
+              : inputStockoutPenality);
+          weeks[currentWeek].totalCummulativeCost =
+            weeks[currentWeek].totalCostIncludeStockoutPenality;
+        } else {
+          weeks[currentWeek].inventoryLevelBeginningOfWeek =
+            weeks[currentWeek - 1].inventoryLevelEndOfWeek;
+
+          weeks[currentWeek].inventoryLevelAfterUnloading =
+            weeks[currentWeek - 1].inventoryLevelEndOfWeek +
+            weeks[currentWeek - 1].quantityOrdered;
+
+          weeks[currentWeek].inventoryLevelEndOfWeek =
+            weeks[currentWeek].inventoryLevelBeginningOfWeek -
+            weeks[currentWeek].customerDemand;
+
+          weeks[currentWeek].quantityOrdered = Number($('#inputUnit').val());
+          weeks[currentWeek].orderCosts =
+            weeks[currentWeek].quantityOrdered > 0 ? inputOrderingCost : 0;
+          weeks[currentWeek].holdingCosts =
+            weeks[currentWeek].quantityOrdered * inputHoldingCost;
+
+          weeks[currentWeek].totalCostIncludeStockoutPenality =
+            weeks[currentWeek].orderCosts +
+            weeks[currentWeek].holdingCosts +
+            (weeks[currentWeek].inventoryLevelEndOfWeek > 0
+              ? 0
+              : inputStockoutPenality);
+
+          weeks[currentWeek].totalCummulativeCost =
+            weeks[currentWeek].totalCostIncludeStockoutPenality +
+            weeks[currentWeek - 1].totalCummulativeCost;
+        }
+
+        var inventoryLevelBeginningOfWeek = $(
+          '#inventoryLevelBeginningOfWeek'
+        ).children();
+        var inventoryLevelAfterUnloading = $(
+          '#inventoryLevelAfterUnloading'
+        ).children();
+
+        var customerDemand = $('#customerDemand').children();
+        var inventoryLevelEndOfWeek = $('#inventoryLevelEndOfWeek').children();
+        var quantityOrdered = $('#quantityOrdered').children();
+        var orderCosts = $('#orderCosts').children();
+        var holdingCosts = $('#holdingCosts').children();
+        var totalCostIncludeStockoutPenality = $(
+          '#totalCostIncludeStockoutPenality'
+        ).children();
+        var totalCummulativeCost = $('#totalCummulativeCost').children();
+
+        inventoryLevelBeginningOfWeek[currentWeek].innerText =
+          weeks[currentWeek].inventoryLevelBeginningOfWeek;
+        inventoryLevelAfterUnloading[currentWeek].innerText =
+          weeks[currentWeek].inventoryLevelAfterUnloading;
+        customerDemand[currentWeek].innerText =
+          weeks[currentWeek].customerDemand;
+        inventoryLevelEndOfWeek[currentWeek].innerText =
+          weeks[currentWeek].inventoryLevelEndOfWeek;
+        quantityOrdered[currentWeek].innerText =
+          weeks[currentWeek].quantityOrdered;
+        orderCosts[currentWeek].innerText = weeks[currentWeek].orderCosts;
+        holdingCosts[currentWeek].innerText = weeks[currentWeek].holdingCosts;
+        totalCostIncludeStockoutPenality[currentWeek].innerText =
+          weeks[currentWeek].totalCostIncludeStockoutPenality;
+
+        totalCummulativeCost[currentWeek].innerText =
+          weeks[currentWeek].totalCummulativeCost;
+        $('#week').text(currentWeek);
+        $('#inputUnit').text('');
+        console.log(weeks);
       });
       //----------------------------------------//
       //---------------------end-----------------//
     });
+
+    function randomIntFromInterval(min, max) {
+      // min and max included
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
   </script>
 </html>
