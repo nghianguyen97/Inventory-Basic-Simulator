@@ -216,6 +216,8 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -365,7 +367,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-8">
             <fieldset class="scheduler-border">
               <legend class="scheduler-border" style="text-align: center;">
                 <p>
@@ -429,7 +431,7 @@
                   </div>
 
                   <img
-                    src="/images/person.png"
+                    src="/images/man.jpg"
                     alt=""
                     width="80px"
                     height="100px"
@@ -461,6 +463,8 @@
               </div> -->
             </fieldset>
           </div>
+
+          <div class="col-md-4" id="chart"></div>
         </div>
 
         <div class="row">
@@ -943,6 +947,38 @@
   </body>
   <script>
     $(document).ready(function () {
+      //-------------------chart-------------------//
+      // var ctx = document.getElementById('chart').getContext('2d');
+      // var chart = new Chart(ctx, {
+      //   // The type of chart we want to create
+      //   type: 'line',
+
+      //   // The data for our dataset
+      //   data: {
+      //     labels: [
+      //       'January',
+      //       'February',
+      //       'March',
+      //       'April',
+      //       'May',
+      //       'June',
+      //       'July',
+      //     ],
+      //     datasets: [
+      //       {
+      //         label: 'My First dataset',
+      //         backgroundColor: 'rgb(255, 99, 132)',
+      //         borderColor: 'rgb(255, 99, 132)',
+      //         data: [0, 10, 5, 2, 20, 30, 45],
+      //       },
+      //     ],
+      //   },
+
+      //   // Configuration options go here
+      //   options: {},
+      // });
+
+      //-----------------end----------------------//
       //---------------initial weeks map-----------//
 
       var inputInitialInventory,
