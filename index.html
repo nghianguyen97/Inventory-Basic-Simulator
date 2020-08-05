@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      body {
-        margin: 0;
-        font-family: 'Lato', sans-serif;
-      }
-
-      .sidebar {
-        margin: 0;
-        padding: 0;
-        width: 200px;
-        background-color: #f1f1f1;
-        position: fixed;
-        height: 100%;
-        overflow: auto;
-      }
-
-      #setupSimulatorPage {
-        background-color: cornsilk;
-      }
-
-      .sidebar a {
-        display: block;
-        color: black;
-        padding: 16px;
-        text-decoration: none;
-      }
-
-      .sidebar a.active {
-        background-color: #4caf50;
-        color: white;
-      }
-
-      .sidebar a:hover:not(.active) {
-        background-color: #555;
-        color: white;
-      }
-
-      .eiuLogo {
-        margin-left: -15px;
-        background-color: burlywood;
-      }
-
-      div.content {
-        margin-left: 200px;
-        padding: 1px 16px;
-        height: 1000px;
-      }
-
-      .unitDescription {
-        margin-top: 42px;
-      }
-      /* @media screen and (max-width: 700px) {
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+        
+        #setupSimulatorPage {
+            background-color: cornsilk;
+        }
+        
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+        
+        .sidebar a.active {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+        
+        .eiuLogo {
+            margin-left: -15px;
+            background-color: burlywood;
+        }
+        
+        div.content {
+            margin-left: 200px;
+            padding: 1px 16px;
+            height: 1000px;
+        }
+        
+        .unitDescription {
+            margin-top: 42px;
+        }
+        /* @media screen and (max-width: 700px) {
         .sidebar {
           width: 100%;
           height: auto;
@@ -73,149 +74,148 @@
           float: none;
         }
       } */
-
-      body {
-        font: 20px Montserrat, sans-serif;
-        line-height: 1.8;
-        color: #f5f6f7;
-      }
-
-      p {
-        font-size: 16px;
-      }
-
-      .margin {
-        margin-bottom: 45px;
-      }
-
-      .bg-1 {
-        background-color: #1abc9c;
-        /* Green */
-        color: #ffffff;
-      }
-
-      .bg-2 {
-        background-color: #474e5d;
-        /* Dark Blue */
-        color: #ffffff;
-      }
-
-      .bg-3 {
-        background-color: #ffffff;
-        /* White */
-        color: #555555;
-      }
-
-      .bg-4 {
-        background-color: #2f2f2f;
-        /* Black Gray */
-        color: #fff;
-      }
-
-      .container-fluid {
-        padding-top: 70px;
-        padding-bottom: 70px;
-      }
-
-      .navbar {
-        padding-top: 15px;
-        padding-bottom: 15px;
-        border: 0;
-        border-radius: 0;
-        margin-bottom: 0;
-        font-size: 12px;
-        letter-spacing: 5px;
-      }
-
-      .navbar-nav li a:hover {
-        color: #1abc9c !important;
-      }
-
-      h1 {
-        font-family: 'Bradley Hand ITC', cursive;
-      }
-
-      .frac {
-        display: inline-block;
-        position: relative;
-        vertical-align: middle;
-        letter-spacing: 0.001em;
-        text-align: center;
-      }
-
-      .frac > span {
-        display: block;
-        padding: 0.1em;
-        font-size: small;
-      }
-
-      .frac span.bottom {
-        border-top: thin solid black;
-      }
-
-      .frac {
-        float: right;
-      }
-
-      .frac span.symbol {
-        display: none;
-      }
-
-      #simulatePage {
-        background-image: url('images/work-form.jpg');
-      }
-
-      #homePage {
-        background-image: url('images/work-form.jpg');
-      }
-
-      #setupSimulatorPage {
-        background-image: url('images/work-form.jpg');
-      }
-
-      fieldset.scheduler-border {
-        border: 2px groove #ddd !important;
-        padding: 0 0 0 0 !important;
-        margin: 0 0 1.5em 0 !important;
-        -webkit-box-shadow: 0px 0px 0px 0px #000;
-        box-shadow: 0px 0px 0px 0px #000;
-        border-radius: 5px;
-      }
-
-      legend.scheduler-border {
-        width: inherit; /* Or auto */
-        padding: 0 10px; /* To give a bit of padding on the left and right */
-        border-bottom: none;
-        font-size: small;
-        margin-left: 150px;
-      }
-
-      .list-group-item-light {
-        color: #818182;
-        background-color: whitesmoke !important;
-      }
-
-      .truckAnimation {
-        animation-name: truckRun;
-        animation-duration: 3s;
-        animation-iteration-count: 1;
-      }
-
-      @keyframes truckRun {
-        0% {
-          left: 0px;
-          top: 0px;
+        
+        body {
+            font: 20px Montserrat, sans-serif;
+            line-height: 1.8;
+            color: #f5f6f7;
         }
-        25% {
-          left: 200px;
-          top: 0px;
+        
+        p {
+            font-size: 16px;
         }
-      }
+        
+        .margin {
+            margin-bottom: 45px;
+        }
+        
+        .bg-1 {
+            background-color: #1abc9c;
+            /* Green */
+            color: #ffffff;
+        }
+        
+        .bg-2 {
+            background-color: #474e5d;
+            /* Dark Blue */
+            color: #ffffff;
+        }
+        
+        .bg-3 {
+            background-color: #ffffff;
+            /* White */
+            color: #555555;
+        }
+        
+        .bg-4 {
+            background-color: #2f2f2f;
+            /* Black Gray */
+            color: #fff;
+        }
+        
+        .container-fluid {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+        
+        .navbar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+            letter-spacing: 5px;
+        }
+        
+        .navbar-nav li a:hover {
+            color: #1abc9c !important;
+        }
+        
+        h1 {
+            font-family: 'Bradley Hand ITC', cursive;
+        }
+        
+        .frac {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            letter-spacing: 0.001em;
+            text-align: center;
+        }
+        
+        .frac>span {
+            display: block;
+            padding: 0.1em;
+            font-size: small;
+        }
+        
+        .frac span.bottom {
+            border-top: thin solid black;
+        }
+        
+        .frac {
+            float: right;
+        }
+        
+        .frac span.symbol {
+            display: none;
+        }
+        
+        #simulatePage {
+            background-image: url('images/work-form.jpg');
+        }
+        
+        #homePage {
+            background-image: url('images/work-form.jpg');
+        }
+        
+        #setupSimulatorPage {
+            background-image: url('images/work-form.jpg');
+        }
+        
+        fieldset.scheduler-border {
+            border: 2px groove #ddd !important;
+            padding: 0 0 0 0 !important;
+            margin: 0 0 1.5em 0 !important;
+            -webkit-box-shadow: 0px 0px 0px 0px #000;
+            box-shadow: 0px 0px 0px 0px #000;
+            border-radius: 5px;
+        }
+        
+        legend.scheduler-border {
+            width: inherit;
+            /* Or auto */
+            padding: 0 10px;
+            /* To give a bit of padding on the left and right */
+            border-bottom: none;
+            font-size: small;
+            margin-left: 150px;
+        }
+        
+        .list-group-item-light {
+            color: #818182;
+            background-color: whitesmoke !important;
+        }
+        
+        .truckAnimation {
+            animation-name: truckRun;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+        }
+        
+        @keyframes truckRun {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+            25% {
+                left: 200px;
+                top: 0px;
+            }
+        }
     </style>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -223,159 +223,104 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="/public/js/index.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-      crossorigin="anonymous"
-    />
-  </head>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+</head>
 
-  <body>
+<body>
     <div class="sidebar">
-      <a href="" class="eiuLogo" style="text-align: center;" id="eiuLogo"
-        ><img
-          width="50%"
-          src="https://eiu.edu.vn/resource/view/images/logo.gif"
-          alt="EIU logo"
-      /></a>
+        <a href="" class="eiuLogo" style="text-align: center;" id="eiuLogo"><img width="50%" src="https://eiu.edu.vn/resource/view/images/logo.gif" alt="EIU logo" /></a>
 
-      <a id="home" class="active" href="#home">HOME</a>
-      <a id="setupSimulator" href="#simulator">SETUP SIMULATOR</a>
-      <a id="howToPlay" href="#howToPlay">HOW TO PLAY</a>
-      <a id="simulate" href="#simulate">SIMULATE</a>
+        <a id="home" class="active" href="#home">HOME</a>
+        <a id="setupSimulator" href="#simulator">SETUP SIMULATOR</a>
+        <a id="howToPlay" href="#howToPlay">HOW TO PLAY</a>
+        <a id="simulate" href="#simulate">SIMULATE</a>
     </div>
 
     <div class="content" id="simulatePage">
-      <div
-        class="container"
-        style="
+        <div class="container" style="
           background-color: antiquewhite;
           font-weight: 600;
           font-size: small;
-        "
-      >
-        <header style="text-align: center;"><h1>LAPTOP</h1></header>
-        <div class="row" style="margin: auto;">
-          <div class="col-md-4">
-            <ul class="list-group">
-              <li
-                class="list-group-item list-group-item-action list-group-item-light"
-              >
-                Holding Cost:
-                <span
-                  class="badge badge-primary badge-pill"
-                  id="holdingCostSimulate"
-                >
+        ">
+            <header style="text-align: center;">
+                <h1>LAPTOP</h1>
+            </header>
+            <div class="row" style="margin: auto;">
+                <div class="col-md-4">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-action list-group-item-light">
+                            Holding Cost:
+                            <span class="badge badge-primary badge-pill" id="holdingCostSimulate">
                   0</span
                 >
                 <div class="frac">
                   <span>$/(unit)(week)</span>
                 </div>
-              </li>
-              <li
-                class="list-group-item list-group-item-action list-group-item-light"
-              >
-                Ordering Cost:
-                <span
-                  class="badge badge-primary badge-pill"
-                  id="orderingCostSimulate"
-                  >0
+                </li>
+                <li class="list-group-item list-group-item-action list-group-item-light">
+                    Ordering Cost:
+                    <span class="badge badge-primary badge-pill" id="orderingCostSimulate">0
                 </span>
-                <div class="frac">
-                  <span>$/order</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-group">
-              <li
-                class="list-group-item list-group-item-action list-group-item-light"
-              >
-                Initial Mean Demand:
-                <span
-                  class="badge badge-primary badge-pill"
-                  id="initialMeanDemandSimulate"
-                >
+                    <div class="frac">
+                        <span>$/order</span>
+                    </div>
+                </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action list-group-item-light">
+                        Initial Mean Demand:
+                        <span class="badge badge-primary badge-pill" id="initialMeanDemandSimulate">
                   0</span
                 >
                 <div class="frac">
                   <span>units</span>
-                </div>
-              </li>
-              <li
-                class="list-group-item list-group-item-action list-group-item-light"
-              >
+            </div>
+            </li>
+            <li class="list-group-item list-group-item-action list-group-item-light">
                 Last Week's Demand:
-                <span
-                  class="badge badge-primary badge-pill"
-                  id="lastWeekDemandSimulate"
-                >
+                <span class="badge badge-primary badge-pill" id="lastWeekDemandSimulate">
                   0</span
                 >
                 <div class="frac">
                   <span>units</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="col-md-4"
-            style="
+        </div>
+        </li>
+        </ul>
+    </div>
+    <div class="col-md-4" style="
               background-color: whitesmoke;
               border: 1px solid lightgrey;
               border-radius: 5px;
-            "
-          >
-            <p style="font-size: 13px;">
-              Please place your order which will arrive in Week:
-              <span class="badge badge-primary badge-pill" id="week">1</span>
-            </p>
+            ">
+        <p style="font-size: 13px;">
+            Please place your order which will arrive in Week:
+            <span class="badge badge-primary badge-pill" id="week">1</span>
+        </p>
 
-            <div class="form-group row">
-              <div class="col-sm-6">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="inputUnit"
-                  placeholder="Number of Units"
-                  style="font-size: 13px;"
-                />
-              </div>
-              <div class="col-sm-6">
-                <button
-                  type="submit"
-                  class="btn btn-primary mb-2"
-                  style="font-size: small;"
-                  id="sumitOrder"
-                >
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <input type="number" class="form-control" id="inputUnit" placeholder="Number of Units" style="font-size: 13px;" />
+            </div>
+            <div class="col-sm-6">
+                <button type="submit" class="btn btn-primary mb-2" style="font-size: small;" id="submitOrder">
                   Submit Order
                 </button>
-              </div>
             </div>
-          </div>
         </div>
+    </div>
+    </div>
 
-        <div class="row">
-          <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
             <fieldset class="scheduler-border">
-              <legend class="scheduler-border" style="text-align: center;">
-                <p>
-                  Current Inventory:
-                  <span
-                    class="badge badge-primary badge-pill"
-                    id="currInventorySimulate"
-                    >0</span
+                <legend class="scheduler-border" style="text-align: center;">
+                    <p>
+                        Current Inventory:
+                        <span class="badge badge-primary badge-pill" id="currInventorySimulate">0</span
                   >
                 </p>
               </legend>
@@ -635,6 +580,11 @@
             </table>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;    margin-bottom: 10px;"><button id='finishSimulation' type="submit" class="btn btn-danger">Finish the simulation</button></div>
+          
+        </div>
       </div>
     </div>
 
@@ -672,117 +622,84 @@
         <!-- Left and right controls -->
         <a class="carousel-control-prev" href="#demo" data-slide="prev">
           <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#demo" data-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </a>
-      </div>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+        </div>
     </div>
 
     <div class="content" id="homePage">
-      <div class="container">
-        <!-- First Container -->
-        <div class="container-fluid bg-1 text-center">
-          <h3 class="margin">Who Am I?</h3>
-          <img
-            src="./images/Inventory Basics-logos.jpeg"
-            class="img-responsive img-circle margin"
-            style="display: inline;"
-            alt="Bird"
-            width="420"
-            height="420"
-          />
-          <h3>I'm an Inventory Basics Simulator</h3>
-        </div>
-
-        <!-- Second Container -->
-        <div class="container-fluid bg-2 text-center">
-          <h3 class="margin">What Am I?</h3>
-          <p>
-            I can help you to learn and have a good experience
-          </p>
-          <a href="#" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-search"></span> Search
-          </a>
-        </div>
-
-        <!-- Third Container (Grid) -->
-        <div class="container-fluid bg-3 text-center">
-          <h3 class="margin">Where To Find Me?</h3>
-          <br />
-          <div class="row">
-            <div class="col-sm-4">
-              <p>
-                You can find me at EIU
-              </p>
-              <img
-                src="https://tuyensinh.eiu.edu.vn/upload/duog9759.jpg"
-                class="img-responsive margin"
-                style="width: 100%;"
-                alt="Image"
-              />
+        <div class="container">
+            <!-- First Container -->
+            <div class="container-fluid bg-1 text-center">
+                <h3 class="margin">Who Am I?</h3>
+                <img src="./images/Inventory Basics-logos.jpeg" class="img-responsive img-circle margin" style="display: inline;" alt="Bird" width="420" height="420" />
+                <h3>I'm an Inventory Basics Simulator</h3>
             </div>
-            <div class="col-sm-4">
-              <p>
-                At the EIU's Library
-              </p>
-              <img
-                src="https://tuyensinh.eiu.edu.vn/upload/duog9437.jpg"
-                class="img-responsive margin"
-                style="width: 100%;"
-                alt="Image"
-              />
-            </div>
-            <div class="col-sm-4">
-              <p>
-                At the canteen
-              </p>
-              <img
-                src="https://tuyensinh.eiu.edu.vn/upload/cafe-chat-03.jpg"
-                class="img-responsive margin"
-                style="width: 100%; height: 67%;"
-                alt="Image"
-              />
-            </div>
-          </div>
-        </div>
 
-        <!-- Footer -->
-        <footer class="container-fluid bg-4 text-center">
-          <p>
-            Click here to know more about us
-            <a href="https://eiu.edu.vn">EIU</a>
-          </p>
-        </footer>
-      </div>
+            <!-- Second Container -->
+            <div class="container-fluid bg-2 text-center">
+                <h3 class="margin">What Am I?</h3>
+                <p>
+                    I can help you to learn and have a good experience
+                </p>
+                <a href="#" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-search"></span> Search
+                </a>
+            </div>
+
+            <!-- Third Container (Grid) -->
+            <div class="container-fluid bg-3 text-center">
+                <h3 class="margin">Where To Find Me?</h3>
+                <br />
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            You can find me at EIU
+                        </p>
+                        <img src="https://tuyensinh.eiu.edu.vn/upload/duog9759.jpg" class="img-responsive margin" style="width: 100%;" alt="Image" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            At the EIU's Library
+                        </p>
+                        <img src="https://tuyensinh.eiu.edu.vn/upload/duog9437.jpg" class="img-responsive margin" style="width: 100%;" alt="Image" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            At the canteen
+                        </p>
+                        <img src="https://tuyensinh.eiu.edu.vn/upload/cafe-chat-03.jpg" class="img-responsive margin" style="width: 100%; height: 67%;" alt="Image" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="container-fluid bg-4 text-center">
+                <p>
+                    Click here to know more about us
+                    <a href="https://eiu.edu.vn">EIU</a>
+                </p>
+            </footer>
+        </div>
     </div>
 
     <div class="content" id="setupSimulatorPage">
-      <div
-        class="container"
-        style="
+        <div class="container" style="
           background-color: #f1f1f1;
           height: auto;
           font-weight: 600;
           border-radius: 1px;
-        "
-      >
-        <header style="text-align: center; font-weight: 600;">
-          <h1>SETUP SIMULATOR</h1>
-        </header>
+        ">
+            <header style="text-align: center; font-weight: 600;">
+                <h1>SETUP SIMULATOR</h1>
+            </header>
 
-        <div class="row">
-          <div class="col-md-12">
-            <label for="productDescription">Product Description</label>
-            <textarea
-              class="form-control"
-              id="productDescription"
-              name="productDescription"
-              rows="4"
-              cols="50"
-              style="width: 100%; overflow-y: scroll;"
-              readonly
-            >
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="productDescription">Product Description</label>
+                    <textarea class="form-control" id="productDescription" name="productDescription" rows="4" cols="50" style="width: 100%; overflow-y: scroll;" readonly>
             Hello, welcome to our Simulator ✌️✌️✌️
         </textarea
             >
@@ -945,397 +862,5 @@
       </div>
     </div>
   </body>
-  <script>
-    $(document).ready(function () {
-      //-------------------chart-------------------//
-      // var ctx = document.getElementById('chart').getContext('2d');
-      // var chart = new Chart(ctx, {
-      //   // The type of chart we want to create
-      //   type: 'line',
-
-      //   // The data for our dataset
-      //   data: {
-      //     labels: [
-      //       'January',
-      //       'February',
-      //       'March',
-      //       'April',
-      //       'May',
-      //       'June',
-      //       'July',
-      //     ],
-      //     datasets: [
-      //       {
-      //         label: 'My First dataset',
-      //         backgroundColor: 'rgb(255, 99, 132)',
-      //         borderColor: 'rgb(255, 99, 132)',
-      //         data: [0, 10, 5, 2, 20, 30, 45],
-      //       },
-      //     ],
-      //   },
-
-      //   // Configuration options go here
-      //   options: {},
-      // });
-
-      //-----------------end----------------------//
-      //---------------initial weeks map-----------//
-      var currentWeek = 0;
-      var inputInitialInventory,
-        inputStockoutPenality,
-        inputDemandMean,
-        inputDemandStdDev,
-        inputHoldingCost,
-        inputOrderingCost;
-
-      var weeksToGenerate = 12;
-      var weeks = {};
-
-      for (let index = 0; index < weeksToGenerate; index++) {
-        let object = {
-          week: index + 1,
-          inventoryLevelBeginningOfWeek: 0,
-          inventoryLevelAfterUnloading: 0,
-          customerDemand: 0,
-          inventoryLevelEndOfWeek: 0,
-          quantityOrdered: 0,
-          orderCosts: 0,
-          holdingCosts: 0,
-          totalCostIncludeStockoutPenality: 0,
-          totalCummulativeCost: 0,
-        };
-
-        weeks[index + 1] = object;
-      }
-
-      console.log(weeks);
-
-      //-----------------end----------------------//
-      var inputObj = {};
-      var isSaved = false;
-      var isRunning = false;
-      //----------initial page--------------------//
-      $('#homePage').show(1000);
-      $('#setupSimulatorPage').hide();
-      $('#simulatePage').hide();
-      $('#howToPlayPage').hide();
-
-      //-----simulate--------//
-      $('#truckAnimation').hide();
-      $('#personOrder').hide();
-      $('#userDemandMessage').hide();
-      //-------end-----------//
-
-      //----------hide the side bar---------//
-      // $('#simulate').hide();
-      // $('#howToPlay').hide();
-      //----------end---------------------//
-
-      //----------initial page--------------------//
-
-      //------------Set up simulator-------------//
-      $('#setupSimulator').click(function () {
-        $('#setupSimulatorPage').show(500);
-        $('#homePage').hide();
-        $('#simulatePage').hide();
-        $('#howToPlayPage').hide();
-        //----------set active--------//
-        $(`#setupSimulator`).css('background-color', '#4caf50');
-        $(`#setupSimulator`).css('color', 'white');
-        $(`.sidebar`)
-          .find('a')
-          .each(function () {
-            if (this.id !== 'setupSimulator' && this.id !== 'eiuLogo') {
-              $(`#${this.id}`).css('background-color', '#f1f1f1');
-              $(`#${this.id}`).css('color', 'black');
-            }
-          });
-        //----------end-------------//
-      });
-
-      $('#buttonSave').click(function () {
-        //------check the button--------//
-        inputInitialInventory = Number($('#inputInitialInventory').val());
-        inputStockoutPenality = Number($('#inputStockoutPenality').val());
-        inputDemandMean = Number($('#inputDemandMean').val());
-        inputDemandStdDev = Number($('#inputDemandStdDev').val());
-        inputHoldingCost = Number($('#inputHoldingCost').val());
-        inputOrderingCost = Number($('#inputOrderingCost').val());
-
-        inputObj = {
-          inputInitialInventory: inputInitialInventory,
-          inputStockoutPenality: inputStockoutPenality,
-          inputDemandMean: inputDemandMean,
-          inputDemandStdDev: inputDemandStdDev,
-          inputHoldingCost: inputHoldingCost,
-          inputOrderingCost: inputOrderingCost,
-        };
-
-        for (let e in inputObj) {
-          if (inputObj[e] === '') {
-            alert(`All fields must be filled👇👇👇!`);
-            return;
-          }
-        }
-        isSaved = true;
-        for (let e in inputObj) {
-          $(`#${e.toString()}`).attr('readonly', true);
-        }
-
-        var EOQ = Math.ceil(
-          Math.sqrt(
-            (2 * inputDemandMean * inputOrderingCost) / inputHoldingCost
-          )
-        );
-        var estimatedNumberOfOrders = Math.ceil((inputDemandMean * 12) / EOQ);
-        var estimatedNumberOfRounds = Math.ceil(EOQ / inputDemandMean - 1);
-
-        console.log('EOQ', EOQ);
-        console.log('estimatedNumberOfOrders ', estimatedNumberOfOrders);
-        console.log('estimatedNumberOfRounds ', estimatedNumberOfRounds);
-
-        $('#estimatedNumberOfOrders').text(estimatedNumberOfOrders);
-        $('#estimatedNumberOfRounds').text(estimatedNumberOfRounds);
-        $('#EOQ').text(EOQ);
-        $('#buttonEdit').attr('disabled', false);
-        $('#buttonSave').attr('disabled', true);
-        console.log('inputObj', inputObj);
-      });
-
-      $('#buttonEdit').click(function () {
-        $('#buttonEdit').attr('disabled', true);
-        $('#buttonSave').attr('disabled', false);
-
-        for (let e in inputObj) {
-          $(`#${e.toString()}`).attr('readonly', false);
-        }
-      });
-
-      $('#buttonRun').click(function () {
-        //------------show the side bar-------------//
-        if (isRunning) {
-          alert('The Sumilation is already running🏃🏃🏃!');
-        }
-        if (isSaved) {
-          isRunning = true;
-          // $('#howToPlay').show(1000);
-          // $('#simulate').show(1000);
-        } else {
-          alert(`Please click the 'Save' button to continue👊👊👊!`);
-        }
-
-        //--------------end-----------------------//
-      });
-      //---------------------end-----------------//
-
-      //------------------Home-------------------//
-      $('#home').click(function () {
-        $('#setupSimulatorPage').hide();
-        $('#homePage').show(500);
-        $('#simulatePage').hide();
-        $('#howToPlayPage').hide();
-        //----------set active--------//
-        $(`#home`).css('background-color', '#4caf50');
-        $(`#home`).css('color', 'white');
-        $(`.sidebar`)
-          .find('a')
-          .each(function () {
-            if (this.id !== 'home' && this.id !== 'eiuLogo') {
-              $(`#${this.id}`).css('background-color', '#f1f1f1');
-              $(`#${this.id}`).css('color', 'black');
-            }
-          });
-        //----------end-------------//
-      });
-
-      //---------------------end-----------------//
-
-      //------------------Ho to Play---------------//
-      $('#howToPlay').click(function () {
-        $('#setupSimulatorPage').hide();
-        $('#homePage').hide();
-        $('#simulatePage').hide();
-        $('#howToPlayPage').show(500);
-        //----------set active--------//
-        $(`#howToPlay`).css('background-color', '#4caf50');
-        $(`#howToPlay`).css('color', 'white');
-        $(`.sidebar`)
-          .find('a')
-          .each(function () {
-            if (this.id !== 'howToPlay' && this.id !== 'eiuLogo') {
-              $(`#${this.id}`).css('background-color', '#f1f1f1');
-              $(`#${this.id}`).css('color', 'black');
-            }
-          });
-        //----------end-------------//
-      });
-
-      //---------------------end-----------------//
-
-      //------------------Simulate---------------//
-      $('#simulate').click(function () {
-        $('#setupSimulatorPage').hide();
-        $('#homePage').hide();
-        $('#simulatePage').show(500);
-        $('#howToPlayPage').hide();
-        //----------set active--------//
-        $(`#simulate`).css('background-color', '#4caf50');
-        $(`#setupSimulator`).css('color', 'white');
-        $(`.sidebar`)
-          .find('a')
-          .each(function () {
-            if (this.id !== 'simulate' && this.id !== 'eiuLogo') {
-              $(`#${this.id}`).css('background-color', '#f1f1f1');
-              $(`#${this.id}`).css('color', 'black');
-            }
-          });
-
-        var inputHoldingCostSimulate = $('#inputHoldingCost').val()
-          ? $('#inputHoldingCost').val()
-          : 0;
-
-        var inputOrderingCostSimulate = $('#inputOrderingCost').val()
-          ? $('#inputOrderingCost').val()
-          : 0;
-
-        var initialMeanDemandSimulate = $('#inputInitialInventory').val()
-          ? $('#inputInitialInventory').val()
-          : 0;
-
-        var lastWeekDemandSimulate = $('#inputOrderingCost').val()
-          ? $('#inputOrderingCost').val()
-          : 0;
-
-        $('#holdingCostSimulate').text(inputHoldingCostSimulate);
-        $('#orderingCostSimulate').text(inputOrderingCostSimulate);
-        $('#initialMeanDemandSimulate').text(inputOrderingCostSimulate);
-        $('#lastWeekDemandSimulate').text(inputOrderingCostSimulate);
-
-        //----------end-------------//
-      });
-
-      //----------submit order button------------//
-      $('#sumitOrder').click(function () {
-        currentWeek++;
-        $('#truckAnimation').show();
-        $('#personOrder').show(2000);
-        $('#userDemandMessage').show(2000);
-        $('#animationClass').addClass('truckAnimation');
-
-        //----reset------//
-
-        setTimeout(() => {
-          $('#truckAnimation').hide(1000);
-          $('#personOrder').hide(1000);
-          $('#userDemandMessage').hide(1000);
-          $('#animationClass').removeClass('truckAnimation');
-        }, 3000);
-        //----end-------//
-
-        if (currentWeek === 1) {
-          weeks[
-            currentWeek
-          ].inventoryLevelBeginningOfWeek = inputInitialInventory;
-          weeks[
-            currentWeek
-          ].inventoryLevelAfterUnloading = inputInitialInventory;
-
-          var customerDemand = [19, 20, 21];
-          var random = randomIntFromInterval(0, 2);
-          weeks[currentWeek].customerDemand = customerDemand[random];
-          weeks[currentWeek].inventoryLevelEndOfWeek =
-            weeks[currentWeek].inventoryLevelBeginningOfWeek -
-            weeks[currentWeek].customerDemand;
-
-          weeks[currentWeek].quantityOrdered = Number($('#inputUnit').val());
-          weeks[currentWeek].orderCosts =
-            weeks[currentWeek].quantityOrdered > 0 ? inputOrderingCost : 0;
-          weeks[currentWeek].holdingCosts =
-            weeks[currentWeek].quantityOrdered * inputHoldingCost;
-
-          weeks[currentWeek].totalCostIncludeStockoutPenality =
-            weeks[currentWeek].orderCosts +
-            weeks[currentWeek].holdingCosts +
-            (weeks[currentWeek].inventoryLevelEndOfWeek > 0
-              ? 0
-              : inputStockoutPenality);
-          weeks[currentWeek].totalCummulativeCost =
-            weeks[currentWeek].totalCostIncludeStockoutPenality;
-        } else {
-          weeks[currentWeek].inventoryLevelBeginningOfWeek =
-            weeks[currentWeek - 1].inventoryLevelEndOfWeek;
-
-          weeks[currentWeek].inventoryLevelAfterUnloading =
-            weeks[currentWeek - 1].inventoryLevelEndOfWeek +
-            weeks[currentWeek - 1].quantityOrdered;
-
-          weeks[currentWeek].inventoryLevelEndOfWeek =
-            weeks[currentWeek].inventoryLevelBeginningOfWeek -
-            weeks[currentWeek].customerDemand;
-
-          weeks[currentWeek].quantityOrdered = Number($('#inputUnit').val());
-          weeks[currentWeek].orderCosts =
-            weeks[currentWeek].quantityOrdered > 0 ? inputOrderingCost : 0;
-          weeks[currentWeek].holdingCosts =
-            weeks[currentWeek].quantityOrdered * inputHoldingCost;
-
-          weeks[currentWeek].totalCostIncludeStockoutPenality =
-            weeks[currentWeek].orderCosts +
-            weeks[currentWeek].holdingCosts +
-            (weeks[currentWeek].inventoryLevelEndOfWeek > 0
-              ? 0
-              : inputStockoutPenality);
-
-          weeks[currentWeek].totalCummulativeCost =
-            weeks[currentWeek].totalCostIncludeStockoutPenality +
-            weeks[currentWeek - 1].totalCummulativeCost;
-        }
-
-        var inventoryLevelBeginningOfWeek = $(
-          '#inventoryLevelBeginningOfWeek'
-        ).children();
-        var inventoryLevelAfterUnloading = $(
-          '#inventoryLevelAfterUnloading'
-        ).children();
-
-        var customerDemand = $('#customerDemand').children();
-        var inventoryLevelEndOfWeek = $('#inventoryLevelEndOfWeek').children();
-        var quantityOrdered = $('#quantityOrdered').children();
-        var orderCosts = $('#orderCosts').children();
-        var holdingCosts = $('#holdingCosts').children();
-        var totalCostIncludeStockoutPenality = $(
-          '#totalCostIncludeStockoutPenality'
-        ).children();
-        var totalCummulativeCost = $('#totalCummulativeCost').children();
-
-        inventoryLevelBeginningOfWeek[currentWeek].innerText =
-          weeks[currentWeek].inventoryLevelBeginningOfWeek;
-        inventoryLevelAfterUnloading[currentWeek].innerText =
-          weeks[currentWeek].inventoryLevelAfterUnloading;
-        customerDemand[currentWeek].innerText =
-          weeks[currentWeek].customerDemand;
-        inventoryLevelEndOfWeek[currentWeek].innerText =
-          weeks[currentWeek].inventoryLevelEndOfWeek;
-        quantityOrdered[currentWeek].innerText =
-          weeks[currentWeek].quantityOrdered;
-        orderCosts[currentWeek].innerText = weeks[currentWeek].orderCosts;
-        holdingCosts[currentWeek].innerText = weeks[currentWeek].holdingCosts;
-        totalCostIncludeStockoutPenality[currentWeek].innerText =
-          weeks[currentWeek].totalCostIncludeStockoutPenality;
-
-        totalCummulativeCost[currentWeek].innerText =
-          weeks[currentWeek].totalCummulativeCost;
-        $('#week').text(currentWeek);
-        $('#inputUnit').text('');
-        console.log(weeks);
-      });
-      //----------------------------------------//
-      //---------------------end-----------------//
-    });
-
-    function randomIntFromInterval(min, max) {
-      // min and max included
-      return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-  </script>
+  <script src="/js/index.js"></script>
 </html>
