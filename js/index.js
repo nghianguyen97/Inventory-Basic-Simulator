@@ -352,9 +352,9 @@ $(document).ready(function() {
                         0 :
                         inputStockoutPenality);
 
-                weeks[currentWeek].totalCummulativeCost =
-                    weeks[currentWeek].totalCostIncludeStockoutPenality +
-                    weeks[currentWeek - 1].totalCummulativeCost;
+                weeks[currentWeek].totalCummulativeCost = Math.ceil(weeks[currentWeek].totalCostIncludeStockoutPenality +
+                    weeks[currentWeek - 1].totalCummulativeCost);
+
             }
 
             var inventoryLevelBeginningOfWeek = $(
