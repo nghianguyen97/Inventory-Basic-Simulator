@@ -126,7 +126,7 @@ $(document).ready(function () {
     for (let e in inputObj) {
       if (inputObj[e] === '') {
         alert(`All fields must be filled👇👇👇!`);
-        return;
+        return false;
       }
     }
 
