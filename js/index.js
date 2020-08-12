@@ -114,6 +114,15 @@ $(document).ready(function () {
     inputHoldingCost = $('#inputHoldingCost').val();
     inputOrderingCost = $('#inputOrderingCost').val();
 
+    inputObj = {
+      inputInitialInventory: inputInitialInventory,
+      inputStockoutPenality: inputStockoutPenality,
+      inputDemandMean: inputDemandMean,
+      inputDemandStdDev: inputDemandStdDev,
+      inputHoldingCost: inputHoldingCost,
+      inputOrderingCost: inputOrderingCost,
+    };
+
     for (let e in inputObj) {
       if (inputObj[e] === '') {
         alert(`All fields must be filled👇👇👇!`);
